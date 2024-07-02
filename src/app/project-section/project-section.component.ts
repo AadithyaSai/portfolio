@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { LeftPaneComponent } from '../left-pane/left-pane.component';
-import { RightPaneComponent } from '../right-pane/right-pane.component';
+import { PanelComponent } from '../panel/panel.component';
 
 @Component({
   selector: 'portfolio-project-section',
   standalone: true,
-  imports: [LeftPaneComponent, RightPaneComponent],
+  imports: [PanelComponent],
   templateUrl: './project-section.component.html',
 })
 export class ProjectSectionComponent {}
