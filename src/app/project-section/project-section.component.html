@@ -1,4 +1,19 @@
-<div class="w-screen h-screen grid grid-cols-2">
-  <portfolio-panel class="col-span-1">Projects</portfolio-panel>
-  <portfolio-panel class="col-span-1">Projects 1</portfolio-panel>
+<div class="grid grid-cols-2">
+  <portfolio-panel projectSectionAnimation class="col-span-1">
+    <div class="flex flex-col items-center mt-[50vh]">
+      <h1 class="text-4xl font-bold">Projects</h1>
+      <p class="text-lg text-center">
+        I have worked on a variety of projects, ranging from web development to
+        machine learning. Here are some of the projects I have worked on.
+      </p>
+    </div>
+  </portfolio-panel>
+  <portfolio-panel class="col-span-1">
+    <div class="flex flex-col items-center justify-center w-full mt-[100vh]">
+      <portfolio-project-card
+        *ngFor="let project of projects"
+        [project]="project"
+      ></portfolio-project-card>
+    </div>
+  </portfolio-panel>
 </div>
