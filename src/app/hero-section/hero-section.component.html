@@ -1,11 +1,29 @@
 <div>
   <div #heroContent class="w-screen h-screen flex justify-center items-center">
-    <div class="flex flex-col gap-2">
+    <div #line1 class="flex flex-col gap-2">
       <p class="text-2xl font-bold font-mono">
-        import {{ "{" }} me {{ "}" }} from 'me';
+        <span class="text-code-keyword">import </span>
+        <span class="text-code-brace">{{ "{" }} </span>
+        <span class="text-code-variable">me </span>
+        <span class="text-code-brace">{{ "}" }} </span>
+        <span class="text-code-keyword">from </span>
+        <span class="text-code-string">'me'</span
+        ><span class="text-code-brace">;</span>
       </p>
-      <p class="text-5xl font-bold font-mono">me.name = "Aadithya Sai";</p>
-      <p class="text-4xl font-bold font-mono">me.who = "Developer";</p>
+      <p #line2 class="text-5xl font-bold font-mono">
+        <span>me</span>.<span class="text-code-variable">name</span
+        ><span class="text-code-operator"> = </span
+        ><span class="text-code-string">"Aadithya Sai"</span
+        ><span class="text-code-brace">;</span>
+      </p>
+      <p #line3 class="text-4xl font-bold font-mono">
+        <span>me</span>.<span class="text-code-variable">who</span
+        ><span class="text-code-operator"> = </span
+        ><span class="text-code-string"
+          >"<span #desc>Developer</span
+          ><span class="animate-blink text-foreground font-thin">|</span>"</span
+        ><span class="text-code-brace">;</span>
+      </p>
     </div>
   </div>
 </div>

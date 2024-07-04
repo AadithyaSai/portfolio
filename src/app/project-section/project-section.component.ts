@@ -4,6 +4,10 @@ import { gsap } from '../utils/gsap';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { NgFor } from '@angular/common';
 
+const me: any = {};
+me.name = 'John Doe';
+me.title = 'Web Developer';
+
 @Component({
   selector: 'portfolio-project-section',
   standalone: true,
@@ -46,7 +50,7 @@ export class ProjectSectionComponent {
         end: () => 'bottom 80%',
         pin: leftPanel.nativeElement,
         pinSpacing: false,
-        markers: true,
+        // markers: true,
         // scrub: 1,
       },
     });

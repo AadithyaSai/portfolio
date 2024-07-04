@@ -14,10 +14,13 @@ export class HeroSectionComponent {
   }
 
   heroContent = viewChild('heroContent', { read: ElementRef });
+  desc = viewChild('desc', { read: ElementRef });
 
   ngAfterViewInit() {
     const heroContent = this.heroContent()!;
-    const tl = gsap.timeline({
+    const desc = this.desc()!;
+
+    const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger: heroContent.nativeElement,
         pin: this.element.nativeElement,
@@ -27,12 +30,33 @@ export class HeroSectionComponent {
       },
     });
 
-    tl.to(
+    scrollTl.to(
       heroContent.nativeElement,
       {
         opacity: 0,
       },
-      0.8
+      0.4
     );
+
+    const textTl = gsap.timeline({
+      repeat: -1,
+    });
+
+    const titles = ['Problem Solver', 'Thinker', 'Engineer', 'Developer'];
+
+    titles.forEach((title) => {
+      textTl.to(desc.nativeElement, {
+        duration: 1,
+        delay: 2,
+        text: {
+          value: '',
+          rtl: true,
+        },
+      });
+      textTl.to(desc.nativeElement, {
+        duration: 2,
+        text: title,
+      });
+    });
   }
 }
