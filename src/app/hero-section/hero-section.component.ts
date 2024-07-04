@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild } from '@angular/core';
+import { Component, ElementRef, viewChild, viewChildren } from '@angular/core';
 import { gsap } from '../utils/gsap';
 
 @Component({
@@ -15,10 +15,30 @@ export class HeroSectionComponent {
 
   heroContent = viewChild('heroContent', { read: ElementRef });
   desc = viewChild('desc', { read: ElementRef });
+  lines = viewChildren('line', { read: ElementRef });
 
   ngAfterViewInit() {
     const heroContent = this.heroContent()!;
     const desc = this.desc()!;
+    const lines = this.lines();
+
+    const loadTl = gsap.timeline({
+      delay: 2,
+      defaults: {
+        duration: 0.5,
+      },
+    });
+
+    lines.forEach((line) => {
+      loadTl.from(
+        line.nativeElement,
+        {
+          x: -25,
+          opacity: 0,
+        },
+        '-=0.2'
+      );
+    });
 
     const scrollTl = gsap.timeline({
       scrollTrigger: {
@@ -27,6 +47,8 @@ export class HeroSectionComponent {
         scrub: 1,
         start: 'top top',
         end: '+=1000',
+        onLeave: () => textTl.pause(),
+        onEnterBack: () => textTl.play(),
       },
     });
 
@@ -39,6 +61,7 @@ export class HeroSectionComponent {
     );
 
     const textTl = gsap.timeline({
+      delay: 3,
       repeat: -1,
     });
 
