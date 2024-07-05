@@ -1,16 +1,66 @@
-<div class="w-screen h-screen relative border border-pink-600">
-  <div class="absolute top-[5vh] left-[10vw] flex flex-col gap-5">
-    <p class="text-3xl font-extrabold uppercase">Who am I?</p>
-    <p class="ms-3 w-1/2">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-      aspernatur, obcaecati illum natus dolores maxime maiores deleniti minus!
-      Natus nesciunt ratione facere et consectetur aspernatur assumenda id
-      perferendis vitae dolor.
-    </p>
-    <p class="ms-3 w-1/2">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex iusto libero
-      odit, distinctio omnis quas id minus optio asperiores praesentium
-      exercitationem repellat esse hic illo dicta facilis nobis ipsam. Harum!
-    </p>
+<div class="w-screen h-screen relative">
+  <div class="absolute top-[15vh] left-[5vw] block">
+    <div class="flex flex-col gap-5">
+      <p #heading class="text-3xl font-extrabold uppercase">Who am I?</p>
+      <div #content class="ms-3 w-1/2">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+          aspernatur, obcaecati illum natus dolores maxime maiores deleniti
+          minus! Natus nesciunt ratione facere et consectetur aspernatur
+          assumenda id perferendis vitae dolor.
+          <br /><br />
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex iusto
+          libero odit, distinctio omnis quas id minus optio asperiores
+          praesentium exercitationem repellat esse hic illo dicta facilis nobis
+          ipsam. Harum!
+        </p>
+      </div>
+    </div>
+    <div class="mt-16">
+      <p #heading class="text-3xl font-extrabold uppercase">Skills</p>
+      <div #content class="w-1/2 ms-3 mt-8 grid grid-cols-4">
+        <div>
+          <p class="text-lg font-bold">Languages</p>
+          <ul class="list-disc list-inside">
+            <li>Python</li>
+            <li>C/C++</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Libraries</p>
+          <ul class="list-disc list-inside">
+            <li>PyQt6</li>
+            <li>OpenCV</li>
+            <li>Express</li>
+            <li>Tailwind</li>
+            <li>React</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Frameworks</p>
+          <ul class="list-disc list-inside">
+            <li>Flask</li>
+            <li>Django</li>
+            <li>Angular</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Tools</p>
+          <ul class="list-disc list-inside">
+            <li>Git/Github</li>
+            <li>Linux/Shell</li>
+            <li>VS Code</li>
+            <li>Browser Devtools</li>
+            <li>Postman</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #image class="absolute top-[20vh] left-[70vw]">
+    <div class="w-[300px] h-[400px] bg-slate-400"></div>
   </div>
 </div>
