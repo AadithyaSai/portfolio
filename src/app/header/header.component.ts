@@ -1,10 +1,11 @@
 import { Component, ElementRef, viewChildren } from '@angular/core';
 import { gsap, ScrollTrigger } from '../utils/gsap';
+import { NavItemComponent } from '../nav-item/nav-item.component';
 
 @Component({
   selector: 'portfolio-header',
   standalone: true,
-  imports: [],
+  imports: [NavItemComponent],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
