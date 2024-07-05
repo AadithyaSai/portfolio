@@ -11,7 +11,6 @@ import { ContactSectionComponent } from '../contact-section/contact-section.comp
   imports: [
     HeroSectionComponent,
     ProjectSectionComponent,
-    HeaderComponent,
     AboutSectionComponent,
     ContactSectionComponent,
   ],
