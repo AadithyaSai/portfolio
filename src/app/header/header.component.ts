@@ -34,7 +34,6 @@ export class HeaderComponent {
       scrollTrigger: {
         trigger: this.element.nativeElement,
         start: 'top -1000',
-        end: '+=1000',
         toggleActions: 'play none reverse reverse',
       },
     });
