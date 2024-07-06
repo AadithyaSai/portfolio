@@ -30,7 +30,7 @@ export class ProjectSectionComponent {
       year: '2022',
       link: 'https://example.com',
       github: 'https://example.com',
-      technologies: ['react', 'ts', 'python', 'django'],
+      technologies: ['react', 'ts', 'python', 'django', 'flask', 'sqlalchemy'],
     },
     {
       title: 'Project 3',
