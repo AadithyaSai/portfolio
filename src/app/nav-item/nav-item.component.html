@@ -1,6 +1,9 @@
-<a href="{{ link }}" class="hover:text-foreground group transition duration-300"
+<a
+  href="{{ link }}"
+  target="_blank"
+  class="hover:text-primary group motion-reduce:transition-none transition duration-300"
   ><ng-content></ng-content>
   <span
-    class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary"
+    class="block max-w-0 group-hover:max-w-full motion-reduce:transition-none transition-all duration-500 h-0.5 bg-primary"
   ></span>
 </a>
