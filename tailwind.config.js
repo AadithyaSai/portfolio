@@ -8,8 +8,7 @@ module.exports = {
         foreground: "#f8fafc",
         card: "#020817",
         "card-foreground": "#f8fafc",
-        primary: "#f8fafc",
-        "primary-foreground": "#0f172a",
+        primary: "#0ea5e9",
         secondary: "#1e293b",
         "secondary-foreground": "#f8fafc",
         muted: "#1e293b",
@@ -19,6 +18,7 @@ module.exports = {
         border: "#1e293b",
         input: "#1e293b",
         ring: "#cbd5e1",
+        "pill-background": "#0284c7",
 
         "code-keyword": "#c678dd",
         "code-string": "#98c379",
