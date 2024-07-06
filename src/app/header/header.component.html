@@ -8,14 +8,27 @@
       <span class="text-lg">Aadithya Sai</span>
     </a>
     <nav
-      class="flex justify-between items-center p-4 pe-6 gap-5 text-muted-foreground font-bold uppercase tracking-wider"
+      class="flex justify-between items-center p-4 pe-6 gap-5 text-muted-foreground font-bold tracking-wider"
     >
-      <portfolio-nav-item #item link="#about">About</portfolio-nav-item>
-      <portfolio-nav-item #item link="#projects">Projects</portfolio-nav-item>
-      <portfolio-nav-item #item link="#experience"
-        >Experience</portfolio-nav-item
+      <portfolio-nav-item #item link="gh"
+        ><i class="ph-bold ph-github-logo me-2"></i>GitHub</portfolio-nav-item
       >
-      <portfolio-nav-item #item link="#contact">Contact</portfolio-nav-item>
+      <portfolio-nav-item #item link="ln"
+        ><i class="ph-bold ph-linkedin-logo me-2"></i
+        >Linkedin</portfolio-nav-item
+      >
+      <portfolio-nav-item #item link="lc"
+        ><i class="ph-bold ph-code-simple me-2"></i>Leetcode</portfolio-nav-item
+      >
+      <portfolio-nav-item #item link="mail"
+        ><i class="ph-bold ph-envelope-simple me-2"></i
+        >E-Mail</portfolio-nav-item
+      >
+      <button
+        class="border border-primary p-2 rounded-lg motion-reduce:transition-none transition-all duration-300 ease-in-out hover:translate-x-1 hover:-translate-y-1 hover:shadow-primary hover:shadow-[-2px_4px]"
+      >
+        Resume
+      </button>
     </nav>
   </div>
 </header>
