@@ -12,6 +12,28 @@ export class AboutSectionComponent {
     this.element = element;
   }
 
+  skills = [
+    {
+      type: 'Languages',
+      array: ['Python', 'C/C++', 'JavaScript', 'TypeScript', 'SQL'],
+    },
+    {
+      type: 'Libraries',
+      array: ['PyQt6', 'OpenCV', 'React', 'Tailwind', 'Express'],
+    },
+    { type: 'Frameworks', array: ['Django', 'Flask', 'Angular'] },
+    {
+      type: 'Tools',
+      array: [
+        'Git/Github',
+        'Linux/Shell',
+        'Browser Devtools',
+        'Postman',
+        'VSCode',
+      ],
+    },
+  ];
+
   headings = viewChildren('heading', { read: ElementRef });
   contents = viewChildren('content', { read: ElementRef });
   image = viewChild('image', { read: ElementRef });
