@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChildren } from '@angular/core';
+import { Component, ElementRef, viewChild, viewChildren } from '@angular/core';
 import { gsap, ScrollTrigger } from '../utils/gsap';
 import { NavItemComponent } from '../nav-item/nav-item.component';
 
@@ -14,9 +14,11 @@ export class HeaderComponent {
   }
 
   items = viewChildren('item', { read: ElementRef });
+  dropdown = viewChild('dropdown', { read: ElementRef });
 
   ngAfterViewInit() {
     const items = this.items().map((item) => item.nativeElement);
+
     const loadTl = gsap.timeline({
       delay: 0.5,
       defaults: {
@@ -42,5 +44,18 @@ export class HeaderComponent {
       opacity: 0,
       y: -100,
     });
+  }
+
+  toggleDropdown() {
+    const dropdown = this.dropdown()!.nativeElement;
+    dropdown.classList.toggle('hidden');
+
+    // gsap.to(items, {
+    //   duration: 0.5,
+    //   opacity: 1,
+    //   pointerEvents: 'all',
+    //   ease: 'power2.out',
+    //   stagger: 0.1,
+    // });
   }
 }
