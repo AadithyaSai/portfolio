@@ -15,9 +15,40 @@ export class HeaderComponent {
 
   items = viewChildren('item', { read: ElementRef });
   dropdown = viewChild('dropdown', { read: ElementRef });
+  dropdownItems = viewChildren('dropdownitem', { read: ElementRef });
+
+  dropdownTl!: gsap.core.Timeline;
 
   ngAfterViewInit() {
     const items = this.items().map((item) => item.nativeElement);
+    const dropdown = this.dropdown()!.nativeElement;
+    const dropdownItems = this.dropdownItems().map(
+      (item) => item.nativeElement
+    );
+
+    this.dropdownTl = gsap.timeline({
+      defaults: {
+        duration: 0.5,
+      },
+    });
+    this.dropdownTl.addLabel('start');
+    this.dropdownTl.to(
+      dropdown,
+      {
+        opacity: 1,
+        y: 25,
+      },
+      'start'
+    );
+
+    this.dropdownTl.to(
+      dropdownItems,
+      {
+        opacity: 1,
+        stagger: 0.2,
+      },
+      'start'
+    );
 
     const loadTl = gsap.timeline({
       delay: 0.5,
@@ -48,14 +79,9 @@ export class HeaderComponent {
 
   toggleDropdown() {
     const dropdown = this.dropdown()!.nativeElement;
-    dropdown.classList.toggle('hidden');
 
-    // gsap.to(items, {
-    //   duration: 0.5,
-    //   opacity: 1,
-    //   pointerEvents: 'all',
-    //   ease: 'power2.out',
-    //   stagger: 0.1,
-    // });
+    dropdown.classList.toggle('hidden');
+    this.element.nativeElement.classList.toggle('bg-background/70');
+    this.dropdownTl.play('start');
   }
 }
