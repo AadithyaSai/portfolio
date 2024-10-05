@@ -43,16 +43,6 @@ export class AboutSectionComponent {
     const contents = this.contents().map((content) => content.nativeElement);
     const image = this.image()?.nativeElement;
 
-    gsap.to(this.element.nativeElement, {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: this.element.nativeElement,
-        start: 'bottom 50%',
-        toggleActions: 'play none reverse none',
-        // markers: true,
-      },
-    });
-
     const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger: this.element.nativeElement,

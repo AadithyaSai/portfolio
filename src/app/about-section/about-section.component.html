@@ -7,17 +7,17 @@
       >
         Who am I?
       </p>
-      <div #content class="ms-3 w-1/2 leading-normal">
+      <div #content class="mx-3 pe-6 w-full md:w-1/2 leading-normal">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-          aspernatur, obcaecati illum natus dolores maxime maiores deleniti
-          minus! Natus nesciunt ratione facere et consectetur aspernatur
-          assumenda id perferendis vitae dolor.
+          I'm a technophile and coding enthusiast driven by the thrill of
+          problem-solving and the power of automation. With a knack for quickly
+          mastering new technologies, I'm always seeking innovative ways to
+          automate the boring stuff. In addition , I'm proficient in developing
+          desktop applications and websites, both front-end and back-end.
           <br /><br />
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex iusto
-          libero odit, distinctio omnis quas id minus optio asperiores
-          praesentium exercitationem repellat esse hic illo dicta facilis nobis
-          ipsam. Harum!
+          Beyond the world of coding, I'm a voracious reader and audiophile,
+          constantly expanding my knowledge and perspectives. Let's connect and
+          see how we can collaborate on exciting projects!
         </p>
       </div>
     </div>
@@ -28,14 +28,18 @@
       >
         Skills
       </p>
-      <div #content class="w-1/2 ms-3 grid grid-cols-4">
+      <div
+        #content
+        class="w-full md:w-2/3 mx-3 pe-3 grid grid-cols-2 sm:grid-cols-4"
+      >
         @for (skill of skills; track skill) {
         <div>
           <p class="text-lg font-bold">{{ skill.type }}</p>
           <ul>
             @for (elem of skill.array; track $index) {
             <li class="flex items-center my-1">
-              <i class="ph-bold ph-caret-right text-primary"></i>{{ elem }}
+              <i class="ph-bold ph-caret-right text-primary"></i>
+              {{ elem }}
             </li>
             }
           </ul>
@@ -44,11 +48,11 @@
       </div>
     </div>
   </div>
-  <div #image class="absolute top-[20vh] left-[60vw]">
+  <div #image class="absolute top-[10vh] hidden md:block left-[60vw]">
     <img
       src="./Aadithya_NoBG.png"
       alt="my pic"
-      class="object-contain rounded-md"
+      class="object-contain rounded-md max-h-96"
     />
   </div>
 </div>
