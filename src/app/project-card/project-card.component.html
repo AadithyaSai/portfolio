@@ -1,15 +1,15 @@
 <a href="{{ project.link }}" target="_blank">
   <div
-    class="relative flex bg-clip-border text-card-foreground shadow-md w-[90%] max-w-[48rem] rounded-lg p-3 hover:bg-muted-foreground/10 group/card cursor-pointer"
+    class="relative flex flex-col bg-clip-border mx-6 text-card-foreground shadow-md w-[90%] max-w-[48rem] rounded-lg p-3 hover:bg-muted-foreground/10 group/card cursor-pointer"
   >
-    <div class="relative m-0 overflow-hidden bg-clip-border rounded shrink-0">
+    <div class="relative overflow-hidden bg-clip-border rounded shrink-0">
       <img
         src="{{ project.image }}"
         alt="card-image"
-        class="object-cover h-full aspect-square"
+        class="object-cover w-full rounded-t-lg"
       />
     </div>
-    <div class="px-6">
+    <div class="">
       <p class="text-muted-foreground font-mono">{{ project.year }}</p>
       <h4
         class="font-sans text-2xl antialiased font-semibold leading-snug tracking-normal group-hover/card:text-primary flex gap-3"
