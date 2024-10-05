@@ -27,8 +27,10 @@ export class HeaderComponent {
     );
 
     this.dropdownTl = gsap.timeline({
+      paused: true,
       defaults: {
         duration: 0.5,
+        display: 'none',
       },
     });
     this.dropdownTl.addLabel('start');
@@ -37,6 +39,7 @@ export class HeaderComponent {
       {
         opacity: 1,
         y: 25,
+        display: 'block',
       },
       'start'
     );
@@ -46,6 +49,7 @@ export class HeaderComponent {
       {
         opacity: 1,
         stagger: 0.2,
+        display: 'block',
       },
       'start'
     );
@@ -80,8 +84,14 @@ export class HeaderComponent {
   toggleDropdown() {
     const dropdown = this.dropdown()!.nativeElement;
 
-    dropdown.classList.toggle('hidden');
-    this.element.nativeElement.classList.toggle('bg-background/70');
-    this.dropdownTl.play('start');
+    const isVisible = dropdown.checkVisibility();
+
+    console.log(isVisible);
+
+    if (isVisible) {
+      this.dropdownTl.reverse();
+    } else {
+      this.dropdownTl.play('start');
+    }
   }
 }
