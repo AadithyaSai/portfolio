@@ -13,34 +13,34 @@ import { NgFor } from '@angular/common';
 export class ProjectSectionComponent {
   projects = [
     {
-      title: 'Project 1',
+      title: 'Asteroids',
       description:
-        'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco',
-      image: 'https://via.placeholder.com/150',
+        'The classic arcade game, made with Pixi.JS. Fly through space, shooting down asteroids. Compete with your friends for the highest score!',
+      image: './asteroids.png',
+      year: '2024',
+      link: 'https://aadithyasai.github.io/Asteroids/',
+      github: 'https://www.github.com/AadithyaSai/Asteroids',
+      technologies: ['TypeScript', 'Pixi.JS', 'Vite'],
+    },
+    {
+      title: 'AlgoCanvas',
+      description:
+        'An interactive canvas for visualising various computer graphics algorithms. Create the perfect pixel art while exploring classic Computer Graphics algorithms. Learn while having fun!',
+      image: './algocanvas.png',
+      year: '2024',
+      link: 'https://aadithyasai.github.io/AlgoCanvas/',
+      github: 'https://www.github.com/AadithyaSai/AlgoCanvas',
+      technologies: ['React', 'TypeScript', 'Tailwind', 'Vite'],
+    },
+    {
+      title: 'coderun',
+      description:
+        'Bash script to easily compile and run files. Currently supports C/C++ and Java with more coming soon.',
+      image: './coderun.png',
       year: '2023',
-      link: 'https://example.com',
-      github: 'https://example.com',
-      technologies: ['react', 'js'],
-    },
-    {
-      title: 'Project 2',
-      description:
-        'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco',
-      image: 'https://via.placeholder.com/150',
-      year: '2022',
-      link: 'https://example.com',
-      github: 'https://example.com',
-      technologies: ['react', 'ts', 'python', 'django', 'flask', 'sqlalchemy'],
-    },
-    {
-      title: 'Project 3',
-      description:
-        'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco.',
-      image: 'https://via.placeholder.com/150',
-      year: '2021',
-      link: 'https://example.com',
-      github: 'https://example.com',
-      technologies: ['react', 'js', 'angular'],
+      link: 'https://github.com/AadithyaSai/coderun',
+      github: 'https://github.com/AadithyaSai/coderun',
+      technologies: ['Bash', 'Linux'],
     },
   ];
 
@@ -58,9 +58,9 @@ export class ProjectSectionComponent {
       scrollTrigger: {
         trigger: this.element.nativeElement,
         start: 'top top',
-        end: () => 'bottom 60%',
+        end: 'bottom top',
         pin: leftPanel.nativeElement,
-        pinSpacing: false,
+        pinSpacing: true,
         // markers: true,
         scrub: 1,
       },
@@ -81,12 +81,21 @@ export class ProjectSectionComponent {
     );
 
     scrollTl.to(
+      leftPanel.nativeElement,
+      {
+        opacity: 0,
+        x: '-50',
+        duration: 1,
+      },
+      '+=2'
+    );
+    scrollTl.to(
       this.element.nativeElement,
       {
         opacity: 0,
         duration: 1,
       },
-      '+=2'
+      '<'
     );
   }
 }
