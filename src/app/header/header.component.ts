@@ -1,5 +1,12 @@
-import { Component, ElementRef, viewChild, viewChildren } from '@angular/core';
-import { gsap, ScrollTrigger } from '../utils/gsap';
+import {
+  Component,
+  ElementRef,
+  viewChild,
+  viewChildren,
+  Inject,
+} from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { gsap } from '../utils/gsap';
 import { NavItemComponent } from '../nav-item/nav-item.component';
 
 @Component({
@@ -9,13 +16,21 @@ import { NavItemComponent } from '../nav-item/nav-item.component';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  constructor(protected element: ElementRef) {
+  constructor(
+    protected element: ElementRef,
+    @Inject(DOCUMENT) document: Document
+  ) {
     this.element = element;
+    this.document = document;
   }
+
+  private document: Document;
 
   items = viewChildren('item', { read: ElementRef });
   dropdown = viewChild('dropdown', { read: ElementRef });
   dropdownItems = viewChildren('dropdownitem', { read: ElementRef });
+  hamburgerOpen = viewChild('hamburgeropen', { read: ElementRef });
+  hamburgerClose = viewChild('hamburgerclose', { read: ElementRef });
 
   dropdownTl!: gsap.core.Timeline;
 
@@ -25,12 +40,13 @@ export class HeaderComponent {
     const dropdownItems = this.dropdownItems().map(
       (item) => item.nativeElement
     );
+    const hamburgerOpen = this.hamburgerOpen()!.nativeElement;
+    const hamburgerClose = this.hamburgerClose()!.nativeElement;
 
     this.dropdownTl = gsap.timeline({
       paused: true,
       defaults: {
-        duration: 0.5,
-        display: 'none',
+        duration: 0.3,
       },
     });
     this.dropdownTl.addLabel('start');
@@ -48,8 +64,26 @@ export class HeaderComponent {
       dropdownItems,
       {
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.1,
         display: 'block',
+      },
+      'start'
+    );
+
+    this.dropdownTl.to(
+      hamburgerOpen,
+      {
+        opacity: 0,
+        rotate: 90,
+      },
+      'start'
+    );
+
+    this.dropdownTl.to(
+      hamburgerClose,
+      {
+        opacity: 1,
+        rotate: 90,
       },
       'start'
     );
@@ -83,15 +117,16 @@ export class HeaderComponent {
 
   toggleDropdown() {
     const dropdown = this.dropdown()!.nativeElement;
-
     const isVisible = dropdown.checkVisibility();
 
-    console.log(isVisible);
-
     if (isVisible) {
+      // Close the dropdown
+      this.document.body.style.overflow = 'auto';
       this.dropdownTl.reverse();
     } else {
+      // Open the dropdown
       this.dropdownTl.play('start');
+      this.document.body.style.overflow = 'hidden';
     }
   }
 }

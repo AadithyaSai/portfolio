@@ -1,5 +1,14 @@
 <header class="fixed w-screen z-10 backdrop-blur-md">
-  <div class="flex flex-row-reverse md:flex-row justify-between">
+  <div class="flex flex-row justify-between">
+    <div
+      #item
+      class="md:hidden p-4 ms-2 text-foreground text-lg flex items-center"
+    >
+      <button (click)="toggleDropdown()" class="relative">
+        <i #hamburgeropen class="ph-bold ph-list absolute"></i>
+        <i #hamburgerclose class="ph-bold ph-x absolute opacity-0"> </i>
+      </button>
+    </div>
     <a
       #item
       href="#"
@@ -10,17 +19,17 @@
     <nav
       class="hidden md:flex justify-between items-center p-4 pe-6 gap-5 text-muted-foreground font-bold tracking-wider"
     >
-      <portfolio-nav-item #item link="gh"
+      <portfolio-nav-item #item link="https://www.github.com/aadithyasai"
         ><i class="ph-bold ph-github-logo me-2"></i>GitHub</portfolio-nav-item
       >
-      <portfolio-nav-item #item link="ln"
+      <portfolio-nav-item #item link="https://www.linkedin.com/in/aadithyasai"
         ><i class="ph-bold ph-linkedin-logo me-2"></i
         >Linkedin</portfolio-nav-item
       >
-      <portfolio-nav-item #item link="lc"
+      <portfolio-nav-item #item link="https://www.leetcode.com/aadithyasai"
         ><i class="ph-bold ph-code-simple me-2"></i>Leetcode</portfolio-nav-item
       >
-      <portfolio-nav-item #item link="mail"
+      <portfolio-nav-item #item link="mailto:aadithyas0610@gmail.com"
         ><i class="ph-bold ph-envelope-simple me-2"></i
         >E-Mail</portfolio-nav-item
       >
@@ -30,28 +39,35 @@
         Resume
       </button>
     </nav>
-    <div #item class="md:hidden p-4 ms-2 text-foreground text-lg">
-      <button (click)="toggleDropdown()">
-        <i class="ph-bold ph-list"></i>
-      </button>
-    </div>
   </div>
 
   <div #dropdown class="w-screen h-screen hidden">
     <div
       class="flex flex-col justify-between items-center p-4 pe-6 gap-5 text-muted-foreground font-bold tracking-wider"
     >
-      <portfolio-nav-item #dropdownitem link="gh" class="opacity-0"
+      <portfolio-nav-item
+        #dropdownitem
+        link="https://www.github.com/aadithyasai"
+        class="opacity-0"
         ><i class="ph-bold ph-github-logo me-2"></i>GitHub</portfolio-nav-item
       >
-      <portfolio-nav-item #dropdownitem link="ln" class="opacity-0"
+      <portfolio-nav-item
+        #dropdownitem
+        link="https://www.linkedin.com/in/aadithyasai"
+        class="opacity-0"
         ><i class="ph-bold ph-linkedin-logo me-2"></i
         >Linkedin</portfolio-nav-item
       >
-      <portfolio-nav-item #dropdownitem link="lc" class="opacity-0"
+      <portfolio-nav-item
+        #dropdownitem
+        link="https://www.leetcode.com/aadithyasai"
+        class="opacity-0"
         ><i class="ph-bold ph-code-simple me-2"></i>Leetcode</portfolio-nav-item
       >
-      <portfolio-nav-item #dropdownitem link="mail" class="opacity-0"
+      <portfolio-nav-item
+        #dropdownitem
+        link="mailto:aadithyas0610@gmail.com"
+        class="opacity-0"
         ><i class="ph-bold ph-envelope-simple me-2"></i
         >E-Mail</portfolio-nav-item
       >
