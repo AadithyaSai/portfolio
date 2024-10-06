@@ -95,7 +95,7 @@ export class HeaderComponent {
       },
     });
 
-    loadTl.from(items.reverse(), {
+    loadTl.from(items, {
       y: 25,
       opacity: 0,
       stagger: 0.2,
