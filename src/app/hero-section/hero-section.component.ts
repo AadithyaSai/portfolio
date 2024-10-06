@@ -39,26 +39,51 @@ export class HeroSectionComponent {
         '-=0.2'
       );
     });
+    const mm = gsap.matchMedia();
 
-    const scrollTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroContent.nativeElement,
-        pin: this.element.nativeElement,
-        scrub: 1,
-        start: 'top top',
-        end: '+=1000',
-        onLeave: () => textTl.pause(),
-        onEnterBack: () => textTl.play(),
-      },
+    mm.add('(min-width: 769px)', () => {
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroContent.nativeElement,
+          pin: this.element.nativeElement,
+          scrub: 1,
+          start: 'top top',
+          end: '+=1000',
+          onLeave: () => textTl.pause(),
+          onEnterBack: () => textTl.play(),
+        },
+      });
+
+      scrollTl.to(
+        heroContent.nativeElement,
+        {
+          opacity: 0,
+        },
+        0.4
+      );
     });
 
-    scrollTl.to(
-      heroContent.nativeElement,
-      {
-        opacity: 0,
-      },
-      0.4
-    );
+    mm.add('(max-width: 768px)', () => {
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroContent.nativeElement,
+          pin: this.element.nativeElement,
+          scrub: 1,
+          start: 'top top',
+          end: '+=50',
+          onLeave: () => textTl.pause(),
+          onEnterBack: () => textTl.play(),
+        },
+      });
+
+      scrollTl.to(
+        heroContent.nativeElement,
+        {
+          opacity: 0,
+        },
+        0.4
+      );
+    });
 
     const textTl = gsap.timeline({
       delay: 3,
